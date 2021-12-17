@@ -1,0 +1,20 @@
+---
+title: "Alex McCreight"
+site: distill::distill_website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating websites with Distill at:
+# https://rstudio.github.io/distill/website.html
+
+# Learn more about publishing to GitHub Pages at:
+# https://rstudio.github.io/distill/publish_website.html#github-pages
+
+```
+
+## About Me
+
+I am currently pursuing a Bachlor of Arts in applied mathematics and statistics at Macalester College. This summer I hope to find a research opportunity either in the Twin Cities or in my hometown, Kansas City. In my free time I enjoy playing the drums, watching football, and working out.
+

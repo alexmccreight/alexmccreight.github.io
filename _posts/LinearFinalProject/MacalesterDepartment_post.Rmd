@@ -1,0 +1,127 @@
+---
+title: "Macalester Department Cross-Listed Centrality Analysis"
+description: |
+  Found the degree and eigenvalue centrality to measure the connectedness of the departments at macalester. 
+preview: 
+date: 10-10-2020
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r, message=FALSE, warning=FALSE}
+require(pracma)
+library(igraph)
+```
+
+```{r}
+department<-read.csv("/Users/alexmccreight/Desktop/Misc./cs3.csv")  # read in the data
+```
+
+
+```{r}
+DepartmentName = c("American Studies", "Anthropology", "Art and Art History", "Asian Studies", "Biology", "Chemistry", "Chinese", "Classical Mediterranean and Middle East", "Computer Science", "Economics", "Educational Studies", "English", "Environmental Studies", "French and Francophone Studies", "Geography", "Geology", "German Studies", "History", "International Studies", "Interdisciplinary Studies","Japanese", "Latin American Studies", "Linguistics", "Mathematics", "Media and Culutral Studies", "Music", "Neuroscience", "Physical Education", "Philosophy", "Physics and Astronomy", "Political Science", "Portugese", "Psychology", "Religious Studies", "Russian Studies", "Sociology", "Spanish", "Statistics", "Theater and Dance", "Women's, Gender, and Sexuality Studies" )
+```
+
+
+
+```{r, results='hide'}
+A<-as.matrix(department[,1:40]) # convert the departments to a matrix
+
+dim(A)
+head(A)  # shows the top part of the matrix (first 6 rows)
+```
+
+```{r fig.height=8, fig.width=8, echo=FALSE}
+g=graph_from_adjacency_matrix(A,mode='undirected')
+# Plot network
+plot(g, vertex.label.cex=1)
+```
+
+**Explain what your network is: what are the vertices when are two connected by an edge**
+
+Our network measures the amount of classes cross-listed between different departments at Macalester. The verticies are the department names, and the edges are if the departments share a class that is cross-listed. 
+
+**Determine the degree centrality of each vertex.**
+```{r}
+v=rep(1,nrow(A)) # all 1s vector
+d = A %*% v  # degrees
+u=d/sum(d)   # proportion of degrees
+cbind(d,u) # show d and u together side-by-side in a matrix
+```
+
+**Determine the eigenvector centrality of each vertex in two ways:**
+
+-Find the dominant eigenvector by looping and using Gould's index.
+
+```{r, results='hide'}
+(B = A + diag(nrow(A)))
+```
+
+```{r}
+N = 1000 
+w = rep(1,nrow(B))
+for (i in 2:(N+1)) {  
+   w = A %*%  w
+   w = w/sum(w)
+}
+w
+```
+
+```{r}
+vecs = eigen(A)$vectors
+v1 = vecs[,1]
+v1 = v1/sum(v1)
+cbind(w,v1)
+```
+
+-Using the dominant eigenvector with the built-in eigen function.
+
+```{r}
+eigen(B)
+```
+
+**Plot your network so that the sizes of the nodes are proportional to their centrality as given by Gould's index**
+
+```{r fig.height=8, fig.width=8, echo=FALSE}
+coords = layout_with_fr(g)
+plot(g,layout = coords, vertex.size = 200*w,vertex.label.cex=1)
+```
+
+**Sort and rank your vertices according to eigenvalue centrality and according to degree centrality.**
+
+Degree Centrality
+
+```{r}
+df=data.frame(u)
+rownames(df) = DepartmentName
+ii=order(u,decreasing=TRUE)
+df2=data.frame(df[ii,])
+rownames(df2) = DepartmentName[ii]
+df2
+```
+
+Eigenvalue centrality
+
+```{r}
+df = data.frame(w) 
+rownames(df)=DepartmentName
+ii=order(w,decreasing=TRUE)
+df2 = data.frame(df[ii,])
+rownames(df2) = DepartmentName[ii]
+df2
+```
+
+**which nodes are most and least central in each of the measures of centrality**
+
+In the eigenvalue centrality graph, environmental studies is the most central while French and Francophone Studies, Interdisciplinary Studies, Neuroscience, and Physical Education are the least central. 
+
+In the degree centrality graph, environmental studies is the most central while French and Francophone Studies, Interdisciplinary Studies, Neuroscience, and Physical Education are the least central.
+
+**any other interesting/surprising observations from your centrality measures**
+
+There were four departments that were not connected to any other department.
+
+There are two distinct groups with high centrality: environmental studies, geology, and biology and American studies, political science, and history.
+
+

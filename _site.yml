@@ -1,0 +1,12 @@
+name: "alexmccreight.github.io"
+title: "Alex McCreight"
+description: |
+  Alex McCreight
+output_dir: "docs"
+navbar: 
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Projects"
+      href: projects.html
+output: distill::distill_article

@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Domestic Box Office Revenue - A Bayesian Regression and Network Approach</title>
+
+  <meta property="description" itemprop="description" content="Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-12-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-16"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Domestic Box Office Revenue - A Bayesian Regression and Network Approach"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Domestic Box Office Revenue - A Bayesian Regression and Network Approach"/>
+  <meta property="twitter:description" content="Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","preview","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Domestic Box Office Revenue - A Bayesian Regression and Network Approach"]},{"type":"character","attributes":{},"value":["Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks\n"]},{"type":"character","attributes":{},"value":["/Users/alexmccreight/BayesianStats/p_1_website.jpg"]},{"type":"character","attributes":{},"value":["12-16-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["BayesCapstone_post_files/anchor-4.2.2/anchor.min.js","BayesCapstone_post_files/bowser-1.9.3/bowser.min.js","BayesCapstone_post_files/distill-2.2.21/template.v2.js","BayesCapstone_post_files/figure-html5/data-viz-1-1.png","BayesCapstone_post_files/figure-html5/data-viz-2-1.png","BayesCapstone_post_files/figure-html5/data-viz-3-1.png","BayesCapstone_post_files/figure-html5/data-viz-4-1.png","BayesCapstone_post_files/figure-html5/mod1-eval-1.png","BayesCapstone_post_files/figure-html5/mod1-prior-eval-1.png","BayesCapstone_post_files/figure-html5/mod2-eval-1.png","BayesCapstone_post_files/figure-html5/mod2-eval-2.png","BayesCapstone_post_files/figure-html5/mod2-prior-eval-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-2-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-3-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-4-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-5-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-6-1.png","BayesCapstone_post_files/figure-html5/unnamed-chunk-7-1.png","BayesCapstone_post_files/header-attrs-2.11/header-attrs.js","BayesCapstone_post_files/jquery-3.6.0/jquery-3.6.0.js","BayesCapstone_post_files/jquery-3.6.0/jquery-3.6.0.min.js","BayesCapstone_post_files/jquery-3.6.0/jquery-3.6.0.min.map","BayesCapstone_post_files/popper-2.6.0/popper.min.js","BayesCapstone_post_files/tippy-6.2.7/tippy-bundle.umd.min.js","BayesCapstone_post_files/tippy-6.2.7/tippy-light-border.css","BayesCapstone_post_files/tippy-6.2.7/tippy.css","BayesCapstone_post_files/tippy-6.2.7/tippy.umd.min.js","BayesCapstone_post_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="BayesCapstone_post_files/header-attrs-2.11/header-attrs.js"></script>
+  <script src="BayesCapstone_post_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="BayesCapstone_post_files/popper-2.6.0/popper.min.js"></script>
+  <link href="BayesCapstone_post_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="BayesCapstone_post_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="BayesCapstone_post_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="BayesCapstone_post_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="BayesCapstone_post_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="BayesCapstone_post_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="BayesCapstone_post_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Domestic Box Office Revenue - A Bayesian Regression and Network Approach","description":"Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks","authors":[],"publishedDate":"2021-12-16T00:00:00.000-06:00"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Domestic Box Office Revenue - A Bayesian Regression and Network Approach</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>Domestic Box Office Revenue Analysis with Bayesian Regression and Bayesian Networks</p></p>
+</div>
+
+
+<div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h1 id="introduction">Introduction</h1>
+<h2 id="motivation-and-research-question">Motivation and Research Question</h2>
+<p>Movies are one of the most important cultural products with increasing demand (Lee and Chang, 2009). Beyond entertainment, movies also take the form of serious art with profound social and philosophical reflections. Demand for specific movies is often hard to predict despite overall increasing demand. To understand how the movie industry operates and the specific factors that impact consumer preference for movies, we decided to analyze the US box office dataset and study what factors are most related to box office performance from the industry’s perspective.</p>
+<h2 id="data">Data</h2>
+<h3 id="data-source">Data Source</h3>
+<p>Our group is using the boxofficemojo dataset from Kaggle. The dataset contains movie data from the US box office from January 1990 to April 2020. The author, Igor Kirko, scraped movies from the boxofficemojo website that had a budget listed, a US MPAA rating, and is available in English.</p>
+<h3 id="data-scraping-cleaning">Data Scraping &amp; Cleaning</h3>
+<p>In our initial assessment of the data, we knew that we would need more variables for our analysis. We specifically were looking for data about the movie’s rating by the community to see if it affected its box office revenue. In 2008, Amazon purchased boxofficemojo through its subsidiary IMDB, so the two databases share the same movie codes. This allows us to utilize rating data from the IMDB website and join it with the boxofficemojo dataset.</p>
+<p>To clean our dataset, we dropped all variables that would have little to no effect on box office revenue (e.g., the movie’s cinematographer, composer, and run time). We also created indicator variables such as “HolidaySeason” to determine whether or not a movie was released during what we defined as the holiday season, and “director_power,” which finds out whether a movie’s director is in the top 100 grossing directors for the worldwide box office. In total, we have 2821 movies in our dataset.</p>
+<p>More details about our variables can be found in the code book section of the appendix.</p>
+<h3 id="data-visualizations">Data Visualizations</h3>
+<p><strong>Dependent Variable</strong></p>
+<p>Our analysis uses <em>domestic</em> (total domestic box office revenue in millions) from our dataset as our dependent variable, which indicates a movie’s success.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/data-viz-1-1.png" width="624" /></p>
+</div>
+<p>After evaluating the distribution of domestic box office revenue, we found that most movies generate around 70 million USD. However, the domestic box office revenue range varies from 1.228 million USD to 936.662 million USD, and the distribution is heavily right-skewed, so we decided to use the log-scale to normalize our curve.</p>
+<p>We can see from the graph that the logged domestic box office revenue has a relatively normal distribution, centered around 3.75, which is roughly 42.5 million USD (<span class="math inline">\(e^{3.75}\)</span>).</p>
+<p><strong>Quantitative Variables</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/data-viz-2-1.png" width="624" /></p>
+</div>
+<p>Our dataset has three quantitative variables: <em>budget</em>, <em>number of votes</em>, and <em>average rating</em>. We wanted to view their relationships with domestic box office revenue to see whether or not they affect it. To improve our visualization, we decided to use the logged budget and the logged number of votes of a movie to decrease the variability in these variables.</p>
+<p>For our first two plots, we have a positive trend between logged budget and logged domestic box office revenue and between the logged number of votes of a movie and the logged domestic box office revenue. This means that as the logged budget or the logged number of votes increases, the logged domestic box office revenue will also increase. Our third plot does not show a clear relationship between the average rating of a movie and the logged domestic box office revenue.</p>
+<p><strong>Categorical Variables</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/data-viz-3-1.png" width="624" /></p>
+</div>
+<p>Our dataset has four indicator variables: <em>director power</em>, <em>producer power</em>, <em>distributor power</em>, and <em>holiday season</em>. We wanted to view their relationship with domestic box office revenue to see whether or not they affect it. To improve our visualization, we chose to use the logged domestic box office revenue to eliminate many of the outliers.</p>
+<p>From the graphs, we can see that the four variables do not significantly impact domestic box office revenue. The variability of all the graphs is roughly the same.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/data-viz-4-1.png" width="624" /></p>
+</div>
+<p>We have two categorical variables in our dataset with greater than two categories: <em>actor power</em> (0, 1, 2, 3, 4) and <em>MPAA rating</em> (NA, G, PG, PG-13, R, NC-17). We wanted to view their relationship with domestic box office revenue to see whether or not they affect it. To improve our visualization, we chose to use the logged domestic box office revenue to eliminate many of the outliers.</p>
+<p>The graphs show that casting more actors or movies with a G MPAA rating tends to have a higher domestic box office revenue.</p>
+<p><br />
+<br />
+<br />
+<br />
+</p>
+<h1 id="bayesian-normal-regression-approach">Bayesian Normal Regression Approach</h1>
+<h2 id="why-this-approach">Why This Approach?</h2>
+<ul>
+<li><p>Our dependent variable is quantitative and bell-shaped</p></li>
+<li><p>Incorporate our prior knowledge into our model</p></li>
+</ul>
+<h2 id="goals">Goals</h2>
+<p>We are going to create two Bayesian Normal regression models to try and predict the logged domestic box office revenue. For our first model, we hope to create a model that accurately predicts the logged domestic box office revenue solely with the logged budget. For the second model, we added the variables from the data visualization section above that we believe will affect the logged domestic box office revenue.</p>
+<h2 id="model-1">Model 1</h2>
+<p>For our first model, we will examine the relationship between the logged budget of a movie and its logged domestic box office revenue. Intuitively, we think the budget will play an essential role in the success of a movie.</p>
+<p><strong>Building the Model</strong></p>
+<p>To model response variable Y, the logged domestic box revenue, by predictor X, the logged budget, we collected data from 2821 movies. Let <span class="math inline">\((Y_i, X_i)\)</span> denote the observed data on each movie <span class="math inline">\(i \in \{1, 2, ..., 2821\}\)</span>.</p>
+<p><span class="math display">\[\begin{gather}
+Y_i| \beta_0,  \beta_1,\sigma\sim N(\mu_i, \sigma^2) \text{   where   } \mu_i = \beta_0+\beta_1X_i\\
+\beta_{0c} \sim N(m_0, s_0^2)\\
+\beta_1 \sim N(m_1, s_1^2)\\
+\sigma \sim Exp(l)
+\end{gather}\]</span></p>
+<ul>
+<li><span class="math inline">\(\sigma\)</span> measure the typical deviation of an observed Y from the regression line <span class="math inline">\(\beta_0+\beta_1X_1\)</span>.</li>
+</ul>
+<p><strong>Prior Analysis</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_1_prior</span> <span class='op'>&lt;-</span> <span class='fu'>stan_glm</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>domestic</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>budget</span><span class='op'>)</span>,
+  data <span class='op'>=</span> <span class='va'>imdb_movies</span>,
+  family <span class='op'>=</span> <span class='va'>gaussian</span>,
+  prior_PD <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  chains <span class='op'>=</span> <span class='fl'>4</span>, iter <span class='op'>=</span> <span class='fl'>5000</span><span class='op'>*</span><span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>84735</span>,
+  refresh <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/mod1-prior-eval-1.png" width="624" /></p>
+</div>
+<p>The slopes of the prior plausible regression lines are both positive and negative, and the intercepts are quite varied. The priors that we have are uninformative.</p>
+<p><strong>Posterior Analysis</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_1</span> <span class='op'>&lt;-</span> <span class='fu'>stan_glm</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>domestic</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>budget</span><span class='op'>)</span>,
+  data <span class='op'>=</span> <span class='va'>imdb_movies</span>,
+  family <span class='op'>=</span> <span class='va'>gaussian</span>,
+  chains <span class='op'>=</span> <span class='fl'>4</span>, iter <span class='op'>=</span> <span class='fl'>5000</span><span class='op'>*</span><span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>84735</span>,
+  refresh <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/mod1-eval-1.png" width="624" /></p>
+</div>
+<p>The model accurately captures the shape and the range of the data. Also, there is much more certainty when looking at our plausible regression lines, as all of the slopes and intercepts are roughly the same.</p>
+<h2 id="model-2">Model 2</h2>
+<p>For our second model, we are going to examine the relationship between the logged budget of a movie, the distributor’s power, the director’s power, the producer’s power, the logged average rating of a movie, the logged number of votes for a movie, the sum of the actor’s power, whether or not the movie was released during the holiday season, the movie’s MPAA rating, and the logged domestic box office revenue.</p>
+<p><strong>Building the Model</strong></p>
+<p>To model response variable <span class="math inline">\(Y\)</span>, the logged domestic box revenue, by predictor <span class="math inline">\(X_1\)</span>, the logged budget, <span class="math inline">\(X_2\)</span>, distributor_powerTRUE, <span class="math inline">\(X_3\)</span>, director_powerTRUE, <span class="math inline">\(X_4\)</span>, the logged average rating, <span class="math inline">\(X_5\)</span>, the logged number of votes, <span class="math inline">\(X_6\)</span>, A_power1, <span class="math inline">\(X_7\)</span>, A_power2, <span class="math inline">\(X_8\)</span>, A_power3, <span class="math inline">\(X_9\)</span>, A_power4, <span class="math inline">\(X_{10}\)</span>, HolidaySeasonTRUE, <span class="math inline">\(X_{11}\)</span>, mpaa_factorNA, <span class="math inline">\(X_{12}\)</span>, mpaa_factorNC-17, <span class="math inline">\(X_{13}\)</span>, mpaa_factorPG, <span class="math inline">\(X_{14}\)</span>, mpaa_factorPG-13, <span class="math inline">\(X_{15}\)</span>, mpaa_factorR, <span class="math inline">\(X_{16}\)</span>, producer_powerTRUE, we collected data from 2821 movies. Let <span class="math inline">\((Y_i, X_{ip})\)</span> denote the observed data on each movie <span class="math inline">\(i \in \{1, 2, ..., 2821\}\)</span> for each predictor <span class="math inline">\(p \in \{1, 2, ..., 16\}\)</span>.</p>
+<p><span class="math display">\[\begin{gather}
+Y_i| \beta_0,  \beta_1,\beta_2, ...,\beta_{16},\sigma\sim N(\mu_i, \sigma^2) \text{   where   } \mu_i = \beta_0+\beta_1X_{i1}+\beta_2X_{i2}+...+\beta_{16}X_{i16}\\
+\beta_{0c} \sim N(m_0, s_0^2)\\
+\beta_1 \sim N(m_1, s_1^2)\\
+\beta_2 \sim N(m_2, s_2^2)\\
+\vdots\\
+\beta_{16} \sim N(m_{16}, s_{16}^2)\\
+\sigma \sim Exp(l)
+\end{gather}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\sigma\)</span> measure the typical deviation of an observed Y from the regression line <span class="math inline">\(\beta_0+\beta_1X_1\)</span>.</p></li>
+<li><p>We interpret <span class="math inline">\(\beta_0\)</span>, -2.194 (which equates to roughly 54,258 USD), as the estimated logged domestic box office revenue when a movie has a logged budget of 0, does not have a top 10 distributor, does not have a top 100 grossing director, does not have a top 100 grossing producer, has a logged average rating of 0, has no logged votes, has no actors with a previous box office movie, was released outside of the holiday season, and is rated G. <strong>Prior Analysis</strong></p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_2_prior</span> <span class='op'>&lt;-</span> <span class='fu'>stan_glm</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>domestic</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>budget</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>distributor_power</span> <span class='op'>+</span> <span class='va'>director_power</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>averageRating</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>numVotes</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>A_power</span> <span class='op'>+</span> <span class='va'>HolidaySeason</span> <span class='op'>+</span> <span class='va'>mpaa_factor</span> <span class='op'>+</span> <span class='va'>producer_power</span>, 
+  data <span class='op'>=</span> <span class='va'>imdb_movies</span>,
+  family <span class='op'>=</span> <span class='va'>gaussian</span>,
+  prior_PD <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  chains <span class='op'>=</span> <span class='fl'>4</span>, iter <span class='op'>=</span> <span class='fl'>5000</span><span class='op'>*</span><span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>84735</span>,
+  refresh <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/mod2-prior-eval-1.png" width="624" /></p>
+</div>
+<p>From the graph, we can see the the prior predictive check has a much wider range than the data, and it fails to capture the shape of the data. Thus the priors are vague.</p>
+<p><strong>Posterior Analysis</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_2</span> <span class='op'>&lt;-</span> <span class='fu'>stan_glm</span><span class='op'>(</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>domestic</span><span class='op'>)</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>budget</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>distributor_power</span> <span class='op'>+</span> <span class='va'>director_power</span> <span class='op'>+</span> <span class='va'>producer_power</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>averageRating</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>numVotes</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>A_power</span> <span class='op'>+</span> <span class='va'>HolidaySeason</span> <span class='op'>+</span> <span class='va'>mpaa_factor</span>, 
+  data <span class='op'>=</span> <span class='va'>imdb_movies</span>,
+  family <span class='op'>=</span> <span class='va'>gaussian</span>,
+  chains <span class='op'>=</span> <span class='fl'>4</span>, iter <span class='op'>=</span> <span class='fl'>5000</span><span class='op'>*</span><span class='fl'>2</span>, seed <span class='op'>=</span> <span class='fl'>84735</span>,
+  refresh <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/mod2-eval-1.png" width="624" /><img src="BayesCapstone_post_files/figure-html5/mod2-eval-2.png" width="624" /></p>
+</div>
+<p>The posterior predictive check accurately captures the normality and the observed range of the logged domestic box office revenue while the density chain overlay plots produce similar output.</p>
+<h2 id="model-comparison">Model Comparison</h2>
+<p>Now, we are going to compare these two models by using expected log-predictive density (ELPD), which measures the average log posterior predictive pdf, <span class="math inline">\(log(f(y_{new}|\vec{y}))\)</span>, across all possible new data points <span class="math inline">\(y_{new}\)</span> (Johnson, Ott, Dogucu).</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>loo_model_1</span> <span class='op'>&lt;-</span> <span class='fu'>loo</span><span class='op'>(</span><span class='va'>model_1</span><span class='op'>)</span>
+<span class='va'>loo_model_2</span> <span class='op'>&lt;-</span> <span class='fu'>loo</span><span class='op'>(</span><span class='va'>model_2</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>loo_model_1</span><span class='op'>$</span><span class='va'>estimates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span>, <span class='va'>loo_model_2</span><span class='op'>$</span><span class='va'>estimates</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] -3959.588 -3174.781</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>loo_compare</span><span class='op'>(</span><span class='va'>loo_model_1</span>, <span class='va'>loo_model_2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>        elpd_diff se_diff
+model_2    0.0       0.0 
+model_1 -784.8      41.7 </code></pre>
+</div>
+<p>The posterior predictive accuracy of model 2 is significantly greater than that of model 1 as the ELPD of model 2, -3174.781, is greater than the ELPD of model 1, -3959.588, and because the difference in the ELPD model 2 and the ELPD of model is at least two standard errors below 0.</p>
+<p><br />
+<br />
+<br />
+<br />
+</p>
+<h1 id="bayesian-network-approach">Bayesian Network Approach</h1>
+<h2 id="introduction-1">Introduction</h2>
+<p>In our Bayesian normal regression, our task was to predict the box office of any given movie. However, regression tasks cannot be used to draw any causal inference, nor are we informed on the interaction or inter-relations between the variables. In our data context, the causal relationships among different variables are intricate and complicated - director power, actor power, budget, and other factors could impact each other, and we do not know if the box office is directly or indirectly determined by just a subset of the variables or all of them. We moved beyond regression to graphical probabilistic tools such as Bayesian belief networks to gain more such information.</p>
+<p><strong>What are Bayesian Networks?</strong></p>
+<p>Bayesian networks are graphical models (Korb and Nicholson 2004)</p>
+<ul>
+<li><p>nodes represent random variables</p></li>
+<li><p>arrows represent probabilistic dependencies between them</p></li>
+</ul>
+<p>The graphic structure $  = (, A) $ of a Bayesian network is a directed acyclic graph (DAG), where <span class="math inline">\(V\)</span> is the node set and A is the arc set.</p>
+<p>DAG defines a factorization of the joint probability distribution, this is the notation for discrete random variables.</p>
+<p><span class="math display">\[P(X_1, ..., X_v) = \prod^{v}_{i=1}P(X_i |Π_{X_i}) \]</span></p>
+<hr />
+<p><em>A detailed explanation of Bayesian Network</em></p>
+<p>Bayesian Belief Network(BBN) is a graphical probabilistic model that specializes in deriving inferences on the causal relationships between different variables. BBN is a natural advancement of the Naive Bayes classifier, which assumes that all variables are independent. In reality, this is often not a fair assumption to make, as the variables are oftentimes correlated. However, it is also likely intractable to obtain exact causal inference of every possible pair of variables. BBN’s advantage is that it builds upon a computationally more efficient directed acyclic graph for modeling networks of causality, thus achieving higher predictive accuracy and more sensible interpretation of relationships between variables.</p>
+<p>A BBN graph consists of two central elements: nodes and arcs. Each node represents a random variable, and each directed arc represents causality. Absence of arc represents (conditional) independence. An example of a BBN graph is given below.</p>
+<p>Of all variables, bad weather and a bad headache do not have any parent nodes, and are thus independent from each other. Other variables are all somewhat related and dependent, and it would be wrong to use a Naive Bayes classifier to determine if one would fail the exam by all other variables. One key concept to BBN is conditional independence: each note is conditionally independent of its non-immediate descendents. For example, typically, if you have slept over the alarm clock, you are likely to miss and thus fail the exam. However, given certain information that you have arrived at school on time, sleeping over the alarm doesn’t necessarily have anything to do with whether you would fail the exam. This in general provides a much more sensible interpretation of variable relationships than arbitrarily determining that all variables potentially equally contribute to the outcome.</p>
+<p>Usually, on a given matter, we can rely on expertise or prior knowledge to design the BBN model architecture, which could be both advantageous and disadvantageous depending on dimensionality. While BBN is generally good in modeling causality, the model cannot depict cyclic or mutual relationships, which might still be problematic in some settings. For example, if failing the exam might bring you a headache and we draw a causal arc from failing the exam back to a bad headache, then BBN would crash as there’s a Headache-&gt;SleepOverAlarm-&gt;FailTheExam-&gt;Headache cyclic graph. In our data context of determining movie success, this actually could be one of the concerns: oftentimes, the producer/director/actor success and movie success are much correlated with mutual causality: good directors could make great movies with good box office; or people see a movie and thus make the actors/directors rank higher.</p>
+<p><img src="Bayes_project.png" /></p>
+<hr />
+<p><strong>Why we chose this approach?</strong></p>
+<ul>
+<li><p>Easily reflect domain knowledge and can simply notice cause and effect (Antal, Fannes, Timmerman, Moreau, &amp; De Moor, 2004; Aronsky &amp; Haug, 2000)</p></li>
+<li><p>Look at interdependencies (patterns of connections and effects), which means they do not face problems with over-parameterization in regression (adversely affected by adding extra variables).</p></li>
+<li><p>Good at dealing with missing data. Because networks are based on how variables align with each other, they will use any information that is available</p></li>
+</ul>
+<p><strong>What is the purpose of learning the structure?</strong></p>
+<ul>
+<li>helps in learning the dependency structure relative to variables in a domain</li>
+<li>estimate the statistical model of the underlying distribution</li>
+</ul>
+<hr />
+<p><strong>Bayesian network structure learning algorithms</strong></p>
+<ol type="1">
+<li>Fitting BN models</li>
+</ol>
+<p>Maro Scutari(2020), the author of bnlearn R package, outlined the process of fitting a bayesian network into two main steps: 1. Structural learning, which finds the directed acyclic graph that reflects the causality and conditional independence relations in the data; 2. Parameter learning, which estimates parameters of the global distribution. This could be derived from local distributions.</p>
+<ol start="2" type="1">
+<li>Structural learning algorithm</li>
+</ol>
+<p>A Bayesian network, <span class="math inline">\(\mathbb{G}=(\mathbb{V},A)\)</span>, where <span class="math inline">\(\mathbb{V}\)</span> denotes nodes and <span class="math inline">\(A\)</span> denotes arcs, can be shaped by expert knowledge or learned by data. There are generally two types of structural learning algorithms: score-based and constraint-based, though many hybrid approaches also use constraint-based learning to determine the approximate graph structure and use score-based algorithms to determine the best model. In this study, we will employ the hill-climbing algorithm, a greedy score-based algorithm.</p>
+<p>2.1 Score-based algorithms</p>
+<p>The underlying mechanism behind score-based algorithms is that they will give a score to each graphical structure to measure the compatibility of the data and the structure(Kuleshov &amp; Ermon). There are many different score measures, but a general formula of score can be written as: <span class="math display">\[Score(\mathbb{G},\mathbb{D})=L(\mathbb{G},\mathbb{D})-\psi(|\mathbb{D}|)|\mathbb{G}|\]</span> where <span class="math inline">\(L(\mathbb{G},\mathbb{D})\)</span> represents the likelihood(often logged) of data, <span class="math inline">\(|\mathbb{D}|\)</span> represents the data sample size, and <span class="math inline">\(|\mathbb{G}|\)</span> denotes the number of parameters in the given structure. Overall, <span class="math inline">\(\psi(|\mathbb{D}|)|\mathbb{G}|\)</span> is a penalty term that penalizes overly complex structures, thus preventing overfitting of the data. One common choice of score is to take the penalty term as <span class="math inline">\(\frac{|\mathbb{D}|}{2}\ln|\mathbb{G}|\)</span>, which is known as the Bayesian Information Criteria(BIC). A score-based method attempts to find the network structure that maximizes the score or finds the structure most compatible with the data.</p>
+<p>However, to run the score-based approach through all possible structures is computationally infeasible in all but the most trivial data samples. For a potential structure with <span class="math inline">\(p\)</span> variables, a thorough search of all possible networks requires <span class="math inline">\(2^{p(p-1)/2}\)</span> calculations (you can draw <span class="math inline">\(p(p-1)/2\)</span> lines in a network, and two possible directions for each line). To reduce computational expense, a heuristic search is necessary. Hill-climbing (HC) is one of the most popular learning approaches in artificial intelligence, which employs a recursive process that seeks the local optimum at each iteration. In the Bayesian network learning setting, HC starts with a random possible network and tries all modified networks by a single edge change: addition, deletion, or reversal. HC chooses the model with the highest score of all modified networks and then repeats the iterative process unless no modified networks could increase the score. A toy example of one HC iteration is shown below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+</div>
+<p>Assume we have three predictors. We start with a random initial network shown above, which is characterized by a reverse v-structure(which will be explained later), where A is the parent node of two conditionally independent leaf nodes B and C. To perform one entire HC iteration, we list all possible networks after one edge modification.</p>
+<ul>
+<li>Reversal:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
+</div>
+<ul>
+<li>Addition:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
+</div>
+<ul>
+<li>And deletion:</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
+</div>
+<p>We then record the chosen score for each of the six new modified networks and the original initial state. If any modified network can improve the score, we choose the new network with the best score and start another iteration; if no modification improves the score, we settle for the old network.</p>
+<p>As a heuristic search, HC does not guarantee to find the global best network and only seeks the local optimum. As the initial starting network is random, the resulting network structure might be slightly different each time you run HC function.</p>
+<p>2.2 Constraint-based algorithms</p>
+<p>The constraint-based approach to network learning was established by the seminal work of Verma and Pearl(1991). The algorithm is roughly summarized in three steps:</p>
+<ol type="1">
+<li><p>Learning neighbors. For every possible pairs of nodes <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span>(<span class="math inline">\(i\neq j\)</span>), search for a separating set <span class="math inline">\(S_{ij}\)</span> such that given <span class="math inline">\(S_{ij}\)</span>(including <span class="math inline">\(\emptyset\)</span>), <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> are conditionally independent. If such a set does not exist, an undirected arc is placed between <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span>. After this step is done, we check for neighbor symmetry. That is, if <span class="math inline">\(X_i\)</span> is <span class="math inline">\(X_j\)</span>’s neighbor, then <span class="math inline">\(X_j\)</span> must also be <span class="math inline">\(X_i\)</span>’s neighbor. If this is not the case, we drop the arc.</p></li>
+<li><p>Examining v-structure. A V-structure is defined by a triplet of nodes, incident on a converging connection, shown in the example below.</p></li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>For each pair of non-adjacent nodes <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> that has a common neighbor <span class="math inline">\(X_k\)</span>, if <span class="math inline">\(X_k\)</span> is in the separating set <span class="math inline">\(S_{ij}\)</span>, then we set the direction of arcs <span class="math inline">\(X_i \rightarrow X_k\)</span> and <span class="math inline">\(X_i \rightarrow X_k\)</span> to obtain a v-structure.</p>
+<ol start="3" type="1">
+<li>Completing the DAG. This step calls for a logical deduction of arc direction for those undirected arcs to satisfy the acyclicity requirement. Scutari(2020) outlines the recursive steps: a. If <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> are adjacent, and if there is a strict directed path from <span class="math inline">\(X_i\)</span> to <span class="math inline">\(X_j\)</span>, then place <span class="math inline">\(X_i\rightarrow X_j\)</span>. b. If <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> are not adjacent, but <span class="math inline">\(X_i\rightarrow X_k\)</span> and there’s an undirected arc from <span class="math inline">\(X_k\)</span> to <span class="math inline">\(X_j\)</span>, then set <span class="math inline">\(X_k\rightarrow X_j\)</span>.</li>
+</ol>
+<p>The network learned by constraint-based algorithms may contain some undirected arcs. Central to constraint-based network learning is the concept of conditional independence test and the Markov blanket. <span class="math inline">\(X_i\)</span> and <span class="math inline">\(X_j\)</span> are conditionally independent given <span class="math inline">\(X_k\)</span>, denoted by <span class="math inline">\(X_i ⊥ X_j | X_k\)</span>, if and only if <span class="math inline">\(P(X_i,X_j|X_k)=P(X_i|X_k)P(X_j|X_k)\)</span>. The most popular conditional independence tests are mutual information tests (for discrete) and exact Student’s t-tests.</p>
+<p>Markov blanket is often used to reduce computational expense. From the summarized outline of constraint-based algorithms, we can see that it is the first step that asks for a search of every possible separating set for every possible pair of nodes that contains most of the computing process. To effectively reduce this process, we often limit our search of separating sets only among the Markov blanket of the two nodes. A Markov blanket of a variable <span class="math inline">\(X_i\)</span>, <span class="math inline">\(\mathbb{B}(X_i)\)</span>, refers to the subset of variables in <span class="math inline">\(\mathbb{V}\)</span> that graphically separates <span class="math inline">\(X_i\)</span> from any other nodes, or in notation, <span class="math inline">\(X_i ⊥ \mathbb{V}\backslash\{X_i,\mathbb{B}(X_i)\} | \mathbb{B}(X_i)\)</span>. In Bayesian network specifically, the Markov blanket is identified by the parents, children, and spouses. In the example graph below, for node E, the Markov blanket contains: its parents, B and C; its children or immediate descendants, G; and its spouse, F, with whom it shares a common children node, G. A and D are part of the Markov blanket of E. Markov blankets could greatly improve the efficiency of the algorithms as not all variables are entirely relevant in making statistical inferences.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="BayesCapstone_post_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<hr />
+<p><br />
+<br />
+<br />
+<br />
+</p>
+<h2 id="analysis">Analysis</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Because Bayesian network works best with discrete data, we categorize our quantitative continuous variables into 3 categories by using quantile. Data wrangling process will be shown in the appendix.</p>
+<p>We have 11 categorical variables in total</p>
+<ul>
+<li><p>5 of them are Boolean variables(HolidaySeason/producer_power/director_power/distributor_power/genre_power)</p></li>
+<li><p>3 of them with 3 levels which are High, Medium and Low.(domestic_cut/budget_cut/numVotes_cut)</p></li>
+<li><p>A_power has 5 categories(0/1/2/3/4) where representing how many influential artists appeared in the main cast of 4</p></li>
+<li><p>mpaa has 6 categories(1/2/3/4/5/NA) which includes (insert here)</p></li>
+<li><p>averageRating_round has total 7 levels coresponding with the rounded rating score</p></li>
+</ul>
+<p><strong>Incorporating prior knowledge</strong></p>
+<p>Following Lee and Chang(2009), we incorporate our prior knowledge of the system under study into the model selection process. The prior knowledge is shown in the graph below with certain modifications.</p>
+<p><img src="p_2.png" /> From Lee and Chang(2009)</p>
+<p>We will split our 11 categorical variables into four blocks:</p>
+<ul>
+<li><p>Box-office performance(domestic_cut)</p></li>
+<li><p>Production(mpaa/budget_cut/A_power/director_power/producer_power/genre_power)</p></li>
+<li><p>Distribution(distributor_power/HolidaySeason)</p></li>
+<li><p>Exhibition (numVotes_cut/averageRating_round)</p></li>
+</ul>
+<p>We will restrict the model selection process by blacklisting arcs that point from a later to an earlier block.</p>
+<ul>
+<li><p>Box office revenue cannot influence production, distribution and exhibition</p></li>
+<li><p>Production can only influence Distribution and Exhibition</p></li>
+<li><p>Distribution can only influence exhibition</p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Incorporate subjective prior </span>
+
+<span class='co'># Box office revenue cannot influence production, distribution and exhibition </span>
+<span class='va'>blacklist_1</span> <span class='op'>=</span> <span class='fu'>tiers2blacklist</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mpaa"</span>, <span class='st'>"budget_cut"</span>, <span class='st'>"A_power"</span>, <span class='st'>"director_power"</span>, <span class='st'>"producer_power"</span>, <span class='st'>"genre_power"</span>, <span class='st'>"distributor_power"</span>, <span class='st'>"HolidaySeason"</span>, <span class='st'>"numVotes_cut"</span>, <span class='st'>"averageRating_round"</span><span class='op'>)</span>, <span class='st'>"domestic_cut"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>#Distribution can only influence exhibition </span>
+<span class='va'>blacklist_2</span> <span class='op'>=</span> <span class='fu'>tiers2blacklist</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"numVotes_cut"</span>, <span class='st'>"averageRating_round"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"distributor_power"</span>, <span class='st'>"HolidaySeason"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'>#Production can only influence Distribution and Exhibition </span>
+<span class='va'>blacklist_3</span> <span class='op'>=</span> <span class='fu'>tiers2blacklist</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"mpaa"</span>, <span class='st'>"budget_cut"</span>, <span class='st'>"A_power"</span>, <span class='st'>"director_power"</span>, <span class='st'>"producer_power"</span>, <span class='st'>"genre_power"</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"numVotes_cut"</span>, <span class='st'>"averageRating_round"</span>, <span class='st'>"distributor_power"</span>, <span class='st'>"HolidaySeason"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>bl</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>blacklist_1</span>, <span class='va'>blacklist_2</span>, <span class='va'>blacklist_3</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<h2 id="hill-climbing-algorithm">Hill climbing algorithm</h2>
+<p>We chose to use Hill Climbing algorithm in our analysis.</p>
+<p><strong>Network 1: Without prior Knowledge</strong> <strong>Without Blacklisting arcs</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>bn_net0</span> <span class='op'>&lt;-</span> <span class='fu'>hc</span><span class='op'>(</span><span class='va'>imdb_movies_discrete</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>graphviz.plot</span><span class='op'>(</span><span class='va'>bn_net0</span><span class='op'>)</span>
+<span class='va'>na</span> <span class='op'>=</span> <span class='fu'>narcs</span><span class='op'>(</span><span class='va'>bn_net0</span><span class='op'>)</span>
+<span class='co'># Check out the network</span>
+<span class='va'>bn_net0</span>
+</code></pre>
+</div>
+</div>
+<p><img src="p_3.png" /></p>
+<p><em>Network exploration</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Check out the Arc Strength </span>
+<span class='fu'>arc.strength</span><span class='op'>(</span><span class='va'>bn_net0</span>,<span class='va'>imdb_movies_discrete</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='fu'>desc</span><span class='op'>(</span><span class='va'>strength</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>            from                  to    strength
+1   numVotes_cut      director_power   -3.815918
+2     budget_cut             A_power  -10.690161
+3        A_power      producer_power  -22.731520
+4   numVotes_cut             A_power  -26.889533
+5           mpaa        numVotes_cut  -32.786270
+6  HolidaySeason        domestic_cut  -33.785634
+7     budget_cut         genre_power  -51.000243
+8     budget_cut                mpaa  -86.250768
+9     budget_cut   distributor_power -124.445162
+10  numVotes_cut averageRating_round -407.358472
+11  domestic_cut          budget_cut -429.056293
+12  domestic_cut        numVotes_cut -627.306396</code></pre>
+</div>
+<p>As the HC algorithm has a random initial model, the HC function in the bnlearn package might produce a different network each time it runs. To test for network stability, we run the algorithm 1000 times and see how the models differ from each other. This is shown in the graph below. The stronger the arc color is, the more often such arc is existent in the bootstrap network samples.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#checking for stability by bootstrapping</span>
+<span class='va'>boot</span><span class='op'>&lt;-</span><span class='fu'>boot.strength</span><span class='op'>(</span><span class='va'>imdb_movies_discrete</span>,R<span class='op'>=</span><span class='fl'>1000</span>, algorithm <span class='op'>=</span> <span class='st'>"hc"</span><span class='op'>)</span>
+<span class='fu'>qgraph</span><span class='op'>(</span><span class='va'>boot</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><img src="p_4.png" /></p>
+<p>This network is not ideal, as the only root node is HolidaySeason, which is also the only parent node to our intended outcome is domestic_cut. As we expected, there is a lot of reverse causality within the variables. To make box office prediction the primary goal, we potentially need to blacklist some relationships and reverse some arc directions manually.</p>
+<p><strong>Network 2: With Prior Knowledge</strong> <strong>With Blacklisting arcs</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>bn_hc</span> <span class='op'>&lt;-</span> <span class='fu'>hc</span><span class='op'>(</span><span class='va'>imdb_movies_discrete</span>, blacklist<span class='op'>=</span><span class='va'>bl</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>graphviz.plot</span><span class='op'>(</span><span class='va'>bn_hc</span><span class='op'>)</span>
+<span class='va'>na</span> <span class='op'>=</span> <span class='fu'>narcs</span><span class='op'>(</span><span class='va'>bn_hc</span><span class='op'>)</span>
+<span class='va'>bn_hc</span>
+</code></pre>
+</div>
+</div>
+<p><img src="p_1.png" /></p>
+<p>This network has 11 nodes and 12 directed arcs. There are 139 tests used in the learning procedure. As a modification from the network without blacklisting, domestic cut is now one of the leaf nodes with two immediate parents: budget cut and numVotes_cut.</p>
+<p><em>Compare two Bayesian Networks</em></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># compare score based algorithms</span>
+<span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>bn_net0</span>, <span class='va'>bn_hc</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;Different arc sets&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/unlist.html'>unlist</a></span><span class='op'>(</span> <span class='fu'>bnlearn</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/bnlearn/man/compare.html'>compare</a></span><span class='op'>(</span><span class='va'>bn_net0</span>, <span class='va'>bn_hc</span><span class='op'>)</span> <span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>tp fp fn 
+ 5  7  7 </code></pre>
+</div>
+<p>These two networks contain different arc sets. Five arcs appear in the DAG learned by the Hill-Climbing algorithm, both with and without blacklist. Additionally, seven arcs appear in the DAG with blacklist, but not in the one without, and vice-versa.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/par.html'>par</a></span><span class='op'>(</span>mfrow <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>graphviz.compare</span><span class='op'>(</span><span class='va'>bn_net0</span>, <span class='va'>bn_hc</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><img src="p_5.png" /></p>
+<p>We can see that the new network with blacklist make more sense intuitively compared with the last one.</p>
+<p><em>Explaination of Bayesian information criterion</em></p>
+<p>Bayesian information criterion (BIC) is a criterion for model selection among a finite set of models.</p>
+<ul>
+<li><p>BIC attempts to resolve the problem of overfitting by introducing a penalty term for the number of parameters.</p></li>
+<li><p>Model with lower BIC is preferred.</p></li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>s1</span> <span class='op'>&lt;-</span> <span class='fu'>score</span><span class='op'>(</span><span class='va'>bn_net0</span>, data <span class='op'>=</span> <span class='va'>imdb_movies_discrete</span>, type <span class='op'>=</span> <span class='st'>"bic"</span><span class='op'>)</span>
+<span class='va'>s2</span> <span class='op'>&lt;-</span> <span class='fu'>score</span><span class='op'>(</span><span class='va'>bn_hc</span>, data <span class='op'>=</span> <span class='va'>imdb_movies_discrete</span>, type <span class='op'>=</span> <span class='st'>"bic"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>s1</span>, <span class='va'>s2</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] -22548.04 -22600.90</code></pre>
+</div>
+<p>Based on the network score, the DAG produced with the network with blacklist provides a slightly better fit to the data.</p>
+<h2 id="fitting-a-bn-model-and-parameter-estimate">Fitting a BN model and Parameter estimate</h2>
+<p>The joint probability distribution of the model obtained with the hill climbing algorithm factorized according to:</p>
+<p>P(A_power, producer_power, budget_cut, mpaa, HolidaySeason,director_power, distributor_power, genre_power, numVotes_cut, avereageRating_round, domestic_cut) = P(A_power)(producer_power|A_power)(budget_cut|A_power)(mpaa|budget_cut)(HolidaySeason|budget_cut)(director_power|producer_power)(distributor_power|budget_cut)(genre_power|budget_cut)(numVotes_cut|A_power, budget_cut)(domestic_cut|budget_cut,numVotes_cut)(averageRating_round|numVotes_cut)</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Fit the model </span>
+<span class='va'>bn_model</span> <span class='op'>=</span> <span class='fu'>bn.fit</span><span class='op'>(</span><span class='va'>bn_hc</span>, <span class='va'>imdb_movies_discrete</span><span class='op'>)</span> 
+
+<span class='co'># Check out the model coefficient for domestic_cut</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>bn_model</span><span class='op'>$</span><span class='va'>domestic_cut</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>, , numVotes_cut = low
+
+            budget_cut
+domestic_cut         low      medium        high
+      low    0.686520376 0.522988506 0.333333333
+      medium 0.310344828 0.465517241 0.615384615
+      high   0.003134796 0.011494253 0.051282051
+
+, , numVotes_cut = medium
+
+            budget_cut
+domestic_cut         low      medium        high
+      low    0.420382166 0.167095116 0.028301887
+      medium 0.535031847 0.697943445 0.578616352
+      high   0.044585987 0.134961440 0.393081761
+
+, , numVotes_cut = high
+
+            budget_cut
+domestic_cut         low      medium        high
+      low    0.139784946 0.029850746 0.000000000
+      medium 0.612903226 0.488805970 0.122093023
+      high   0.247311828 0.481343284 0.877906977</code></pre>
+</div>
+<p>domestic_cut is directly influenced by budget_cut and numVotes_cut. The coefficients represent the conditional probability distribution of domestic_cut. P(domestic_cut|budget_cut,numVotes_cut)</p>
+<p>For example, in the third matrix, the coefficient “0.1398” is the conditional probability of domestic_cut being low, given high numVotes_cut and low budget_cut.</p>
+<h2 id="making-predictions-of-box-office">Making predictions of box office</h2>
+<p>As all variables are interconnected, once any specific information is given (and becomes our new prior), it could further impact all other nodes. Bayesian networks could be effectively used for prediction purposes.</p>
+<p>In the first example shown below, given that a movie has strong director power and is released in holiday seasons, the Bayesian network predicts that the movie will have a 36% probability of being in the fourth quantile of the domestic box office.</p>
+<p>In the second example shown below, given that we have high domestic box office, non-influential producer, and the holiday season release, the Bayesian network predicts that this movie is unlikely to have cast four influential actors/actresses.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>84735</span><span class='op'>)</span>
+<span class='co'>#predicting the domestic_cut</span>
+<span class='fu'>cpquery</span><span class='op'>(</span><span class='va'>bn_model</span>,event<span class='op'>=</span><span class='op'>(</span><span class='va'>domestic_cut</span><span class='op'>==</span><span class='st'>"high"</span><span class='op'>)</span>,evidence<span class='op'>=</span><span class='op'>(</span><span class='va'>director_power</span><span class='op'>==</span><span class='cn'>TRUE</span><span class='op'>&amp;</span> <span class='va'>HolidaySeason</span><span class='op'>==</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.3673469</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#predicting Apower</span>
+<span class='fu'>cpquery</span><span class='op'>(</span><span class='va'>bn_model</span>,event<span class='op'>=</span><span class='op'>(</span><span class='va'>A_power</span><span class='op'>==</span><span class='fl'>4</span><span class='op'>)</span>,evidence<span class='op'>=</span><span class='op'>(</span> <span class='va'>domestic_cut</span><span class='op'>==</span><span class='st'>"high"</span><span class='op'>&amp;</span><span class='va'>producer_power</span><span class='op'>==</span><span class='cn'>FALSE</span><span class='op'>&amp;</span><span class='va'>HolidaySeason</span><span class='op'>==</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 0.01098901</code></pre>
+</div>
+<p><br />
+<br />
+</p>
+<h1 id="appendix">Appendix</h1>
+<h2 id="references">References</h2>
+<p>Antal, P., Fannes, G., Timmerman, D., Moreau, Y., &amp; De Moor, B. P. (2004). Using literature and data to learn Bayesian networks as clinical models of ovarian tumors. Artificial Intelligence in Medicine, 30, 257–281.</p>
+<p>Bessler, D (2000). d-separation without Tears. Texas A&amp;M University. Retrived from <a href="http://bayes.cs.ucla.edu/BOOK-2K/d-sep.html" class="uri">http://bayes.cs.ucla.edu/BOOK-2K/d-sep.html</a></p>
+<p>Brufatto, Verena. “Bayesian-Networks/bayesian_networks.RMD at Main · Vettorefburana/Bayesian-Networks.” GitHub, 30 Nov. 2021, <a href="https://github.com/vettorefburana/Bayesian-Networks/blob/main/bayesian_networks.Rmd" class="uri">https://github.com/vettorefburana/Bayesian-Networks/blob/main/bayesian_networks.Rmd</a>.</p>
+<p>Chillar, Arush. “Bayesian Structure Learning.” Kaggle, Kaggle, 1 June 2021, <a href="https://www.kaggle.com/arushchillar/bayesian-structure-learning/notebook" class="uri">https://www.kaggle.com/arushchillar/bayesian-structure-learning/notebook</a>.</p>
+<p>Elashkar, E. (2016). “Constraint Based Bayesian Network Structure Learning Algorithms, Using BNLearn R Package.” <a href="https://www.youtube.com/watch?v=4JkddqxGrO0" class="uri">https://www.youtube.com/watch?v=4JkddqxGrO0</a></p>
+<p>Johnson, A. A., Ott, M. Q., and Dogucu, M. (2021) Bayes Rules! An Introduction to Applied Bayesian Modeling. Retrieved from <a href="https://www.bayesrulesbook.com/" class="uri">https://www.bayesrulesbook.com/</a></p>
+<p>Kirko, Igor. “Boxofficemojo Dataset.” Kaggle, 26 Apr. 2020, <a href="https://www.kaggle.com/igorkirko/wwwboxofficemojocom-movies-with-budget-listed" class="uri">https://www.kaggle.com/igorkirko/wwwboxofficemojocom-movies-with-budget-listed</a>.</p>
+<p>Korb K, Nicholson A (2004). Bayesian Artificial Intelligence. Chapman and Hall.</p>
+<p>Kuleshov, V., Ermon, S. Structure Learning for Bayesian Networks. Stanford University. Retrieved from <a href="https://ermongroup.github.io/cs228-notes/learning/structure/" class="uri">https://ermongroup.github.io/cs228-notes/learning/structure/</a></p>
+<p>Margaritis D (2003). “Learning Bayesian Network Model Structure from Data.” Ph.D. thesis, School of Computer Science, Carnegie-Mellon University, Pittsburgh, PA. Available as Technical Report CMU-CS-03-153.</p>
+<p>Scutari, M (2020). “Bayesian Network Constraint-Based Structure Learning Algorithms: Parallel and Optimized Implementations in the bnlearn R Package.” Journal of Statistical Software, 77(2), <a href="DOI:10.18637/jss.v077.i02" class="uri">DOI:10.18637/jss.v077.i02</a></p>
+<p>Verma TS, Pearl J (1991). “Equivalence and Synthesis of Causal Models.” Uncertainty in Artificial Intelligence, 6, 255–268.</p>
+<h2 id="code-book">Code Book</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">title</td>
+<td style="text-align: left;">title (name) of the movie</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">year of production(from 1990 to 2020)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mpaa_factor</td>
+<td style="text-align: left;">The MPAA rating of a movie, 6 categories:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(G, PG, PG-13, R, NC-17, NA)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">budget</td>
+<td style="text-align: left;">the budget of a movie in millions (USD)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">domestic</td>
+<td style="text-align: left;">the box office revenue of a movie in millions within the United States</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">director_power</td>
+<td style="text-align: left;">True: The director is in the top 100 Grossing Director at the Worldwide Box Office</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False: otherwise</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">producer_power</td>
+<td style="text-align: left;">True:the producer is in the top 100 Grossing Producer at the Worldwide Box Office</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False: otherwise</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A_power</td>
+<td style="text-align: left;">The count of the four most popular actors within a movies cast with a previous box-office success (0, 1, 2, 3, 4).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">genre_power</td>
+<td style="text-align: left;">True: the primary genre of the movie is Adventure/Action/Drama/Comedy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False: otherwise</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">distributor_power</td>
+<td style="text-align: left;">True: The distributor of this movie is one of the top 10 distributors (measured in total box office revenue from 1995 to 2021)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False: otherwise</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HolidaySeason</td>
+<td style="text-align: left;">True: April, June, July, November, December</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">False: otherwise</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numVotes</td>
+<td style="text-align: left;">number of votes the title has received on IMDB.com</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">averageRating</td>
+<td style="text-align: left;">weighted average of all individual user ratings</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">domestic_cut</td>
+<td style="text-align: left;">the box office revenue of a movie in millions within the United States cut into three groups: Low (Quartile 1), Medium (Quartiles 2-3), High (Quartile 4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">budget_cut</td>
+<td style="text-align: left;">the budget of a movie in millions (USD) cut into three groups: Low (Quartile 1), Medium (Quartiles 2-3), High (Quartile 4)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numVotes_cut</td>
+<td style="text-align: left;">the number of votes the title has received cut into three groups: Low (Quartile 1), Medium (Quartiles 2-3), High (Quartile 4)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">averageRating_round</td>
+<td style="text-align: left;">weighted average of all individual user ratings rounded to the nearest integer</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-cleaning">Data Cleaning</h2>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Load movies data</span>
+<span class='va'>movies</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"/Users/alexmccreight/BayesianStats/Bayesian Project/Raw Data/Mojo_budget_update.csv"</span><span class='op'>)</span>
+
+<span class='co'># Load ratings data</span>
+<span class='va'>ratings</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"/Users/alexmccreight/BayesianStats/Bayesian Project/Raw Data/rating.csv"</span><span class='op'>)</span>
+
+<span class='co'># Drop trivia, writer, composer, cinematographer, international, and html columns</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span>
+  <span class='va'>movies</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>trivia</span>, <span class='va'>writer</span>, <span class='va'>composer</span>, <span class='va'>cinematographer</span>, <span class='va'>international</span>, <span class='va'>html</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Implement NA's into blank data</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span>                                   
+<span class='va'>movies_new</span><span class='op'>[</span><span class='va'>movies_new</span> <span class='op'>==</span> <span class='st'>""</span> <span class='op'>|</span> <span class='va'>movies_new</span> <span class='op'>==</span> <span class='st'>" "</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='cn'>NA</span> 
+</code></pre>
+</div>
+</div>
+<p><strong>Seperate the date variable into 2 different variables</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>split_date</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>date <span class='op'>=</span> <span class='va'>movies_new</span><span class='op'>$</span><span class='va'>release_date</span><span class='op'>)</span>
+<span class='va'>split_date</span> <span class='op'>&lt;-</span> <span class='fu'>separate</span><span class='op'>(</span><span class='va'>split_date</span>, <span class='va'>date</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"release_month"</span>, <span class='st'>"realease_day"</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>movies_new</span>, <span class='va'>split_date</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Change runtime to a quantative variable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>run_time_min <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span><span class='op'>(</span><span class='va'>run_time</span>, format <span class='op'>=</span> <span class='st'>'%H hr %M min'</span><span class='op'>)</span>, format <span class='op'>=</span> <span class='st'>'%M'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>run_time_hour <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/format.html'>format</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/as.POSIXlt.html'>as.POSIXct</a></span><span class='op'>(</span><span class='va'>run_time</span>, format <span class='op'>=</span> <span class='st'>'%H hr %M min'</span><span class='op'>)</span>, format <span class='op'>=</span> <span class='st'>'%H'</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>run_time_total_min <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>run_time_hour</span><span class='op'>)</span><span class='op'>*</span><span class='fl'>60</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span><span class='op'>(</span><span class='va'>run_time_min</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>select</span><span class='op'>(</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>run_time_min</span>, <span class='va'>run_time_hour</span>, <span class='va'>run_time</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Add a Holiday Season Variable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create a variable to determine whether or not a movie was released during the holiday season (We chose Easter, Summer Holidays, Thanksgiving, and Christmas)</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>HolidaySeason <span class='op'>=</span> <span class='va'>release_month</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"April"</span>, <span class='st'>"June"</span>, <span class='st'>"July"</span>, <span class='st'>"November"</span>, <span class='st'>"December"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Add stars power vairable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create a variable to determine whether or not the cast is in the top 100 stars in leading roles at the worldwide box office</span>
+
+<span class='va'>stars</span> <span class='op'>&lt;-</span> <span class='fu'>read_html</span><span class='op'>(</span><span class='st'>"https://www.the-numbers.com/box-office-star-records/worldwide/lifetime-acting/top-grossing-leading-stars"</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Rank</span>
+<span class='va'>top_100_rank</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"#page_filling_chart .data"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Name</span>
+<span class='va'>top_100_name</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"#page_filling_chart b a"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Worldwide Box Office</span>
+<span class='va'>top_100_worldwide_box_office</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"td:nth-child(3)"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect number of Movies</span>
+<span class='va'>top_100_num_Movies</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"td:nth-child(4)"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Average box office per movie</span>
+<span class='va'>top_100_avg_box_office</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"td:nth-child(5)"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='va'>top_100_actor</span> <span class='op'>&lt;-</span> <span class='fu'>tibble</span><span class='op'>(</span>Rank <span class='op'>=</span> <span class='va'>top_100_rank</span>, Name <span class='op'>=</span> <span class='va'>top_100_name</span>, `Worldwide Box Office` <span class='op'>=</span> <span class='va'>top_100_worldwide_box_office</span>, Movies <span class='op'>=</span> <span class='va'>top_100_num_Movies</span>, Average <span class='op'>=</span> <span class='va'>top_100_avg_box_office</span><span class='op'>)</span>
+
+<span class='co'># Add new variables </span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>A_power_1 <span class='op'>=</span> <span class='va'>main_actor_1</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_actor</span><span class='op'>$</span><span class='va'>Name</span><span class='op'>)</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>A_power_2 <span class='op'>=</span> <span class='va'>main_actor_2</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_actor</span><span class='op'>$</span><span class='va'>Name</span><span class='op'>)</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>A_power_3 <span class='op'>=</span> <span class='va'>main_actor_3</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_actor</span><span class='op'>$</span><span class='va'>Name</span><span class='op'>)</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>A_power_4 <span class='op'>=</span> <span class='va'>main_actor_4</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_actor</span><span class='op'>$</span><span class='va'>Name</span><span class='op'>)</span>
+
+<span class='co'># Combine the Actors power by adding the 4 main actors/actress together</span>
+
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>A_power <span class='op'>=</span> <span class='va'>A_power_1</span> <span class='op'>+</span> <span class='va'>A_power_2</span> <span class='op'>+</span> <span class='va'>A_power_3</span> <span class='op'>+</span> <span class='va'>A_power_4</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Add a director power vairable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create a variable to determine whether or not the direct is in the top 100 Grossing Director at the Worldwide Box Office</span>
+
+<span class='va'>directors</span> <span class='op'>&lt;-</span> <span class='fu'>read_html</span><span class='op'>(</span><span class='st'>"https://www.the-numbers.com/box-office-star-records/worldwide/lifetime-specific-technical-role/director"</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Name</span>
+<span class='va'>top_100_Director_Name</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>"#page_filling_chart b a"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Add new variable</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>director_power <span class='op'>=</span> <span class='va'>director</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_Director_Name</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Add a producer power vairable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create a variable to determine whether or not the producer is in the top 100 Grossing Producer at the Worldwide Box Office</span>
+
+<span class='va'>directors</span> <span class='op'>&lt;-</span> <span class='fu'>read_html</span><span class='op'>(</span><span class='st'>"https://www.the-numbers.com/box-office-star-records/worldwide/lifetime-specific-technical-role/producer"</span><span class='op'>)</span>
+
+<span class='co'># Retrive and inspect Name</span>
+<span class='va'>top_100_Producer_Name</span> <span class='op'>&lt;-</span> 
+  <span class='va'>stars</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_nodes</span><span class='op'>(</span><span class='st'>".data+ td"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>html_text</span><span class='op'>(</span><span class='op'>)</span>
+
+<span class='co'># Add new variable</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>producer_power <span class='op'>=</span> <span class='va'>producer</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>top_100_Producer_Name</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Add a power of the distributor variable</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create a variable to determine the power of a distributor (1 = top 10 distributor, 0 = otherwise)</span>
+
+<span class='va'>distributor_1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Walt Disney Studios Motion Pictures"</span>, <span class='st'>"Warner Bros."</span>, <span class='st'>"Sony Pictures Releasing"</span>, <span class='st'>"Universal Pictures"</span>, <span class='st'>"Twentieth Century Fox"</span>, <span class='st'>"Paramount Classics"</span>, <span class='st'>"Lionsgate"</span>, <span class='st'>"New Line Cinema"</span>, <span class='st'>"DreamWorks"</span>, <span class='st'>"Miramax"</span><span class='op'>)</span>
+
+
+<span class='co'># Add new variable</span>
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>distributor_power <span class='op'>=</span> <span class='va'>distributor</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>distributor_1</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><strong>Genre</strong></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># We kept the primary genre of each movie. Based on the market share for box office revenue, we decided to make a dummy variable, genre_power, that includes Adventure, Action, Drama, and Comedy, as they account for 77.03% of all revenues in the box office from 1995 to 2021. </span>
+
+<span class='co'># https://www.the-numbers.com/market/genres</span>
+
+<span class='va'>movies_new</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>genre_power <span class='op'>=</span>  <span class='va'>genre_1</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Adventure"</span>, <span class='st'>"Action"</span>, <span class='st'>"Drama"</span>, <span class='st'>"Comedy"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<strong>Joining the datasets</strong>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Join the movies dataset with the ratings dataset</span>
+<span class='va'>imdb_movies</span> <span class='op'>&lt;-</span> <span class='va'>movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>inner_join</span><span class='op'>(</span><span class='va'>ratings</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"movie_id"</span> <span class='op'>=</span> <span class='st'>"tconst"</span><span class='op'>)</span><span class='op'>)</span> 
+</code></pre>
+</div>
+</div>
+<strong>Change Quantitative Variables into Categorical Variables</strong>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>imdb_movies_new</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"/Users/alexmccreight/BayesianStats/Bayesian Project/imdb_movies_new.csv"</span><span class='op'>)</span>
+<span class='va'>imdb_movies_new</span> <span class='op'>&lt;-</span> 
+  <span class='va'>imdb_movies_new</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>domestic_cut <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>domestic</span>, breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>17600423</span>,  <span class='fl'>84351197</span>, <span class='cn'>Inf</span><span class='op'>)</span>, 
+                                labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"low"</span>, <span class='st'>"medium"</span>, <span class='st'>"high"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>budget_cut <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>budget</span>, breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>18000000</span>,  <span class='fl'>69000000</span>, <span class='cn'>Inf</span><span class='op'>)</span>, 
+                                labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"low"</span>, <span class='st'>"medium"</span>, <span class='st'>"high"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>numVotes_cut <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>numVotes</span>, breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>36227</span>,  <span class='fl'>202107</span>, <span class='cn'>Inf</span><span class='op'>)</span>, 
+                                labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"low"</span>, <span class='st'>"medium"</span>, <span class='st'>"high"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'>mutate</span><span class='op'>(</span>averageRating_round <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>averageRating</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<p><br />
+<br />
+</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
