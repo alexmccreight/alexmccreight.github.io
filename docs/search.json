@@ -4,15 +4,15 @@
       "path": "index.html",
       "title": "Alex McCreight",
       "author": [],
-      "contents": "\nAbout Me\nI am currently pursuing a Bachlor of Arts in applied mathematics and statistics at Macalester College. This summer I hope to find a research opportunity either in the Twin Cities or in my hometown, Kansas City. In my free time I enjoy playing the drums, watching football, and working out.\n\n\n\n",
-      "last_modified": "2021-12-16T23:59:22-06:00"
+      "contents": "\nAbout Me\nI am currently pursuing a Bachelor of Arts in applied mathematics and statistics at Macalester College. This summer I hope to find a research opportunity either in the Twin Cities or in my hometown, Kansas City. In my free time I enjoy playing the drums, watching football, and working out.\n\n\n\n",
+      "last_modified": "2021-12-17T20:56:20-06:00"
     },
     {
       "path": "projects.html",
       "title": "Projects",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-12-17T00:04:53-06:00"
+      "last_modified": "2021-12-17T20:56:21-06:00"
     }
   ],
   "collections": ["posts/posts.json"]
